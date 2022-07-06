@@ -2,13 +2,27 @@ import React from 'react';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import Header from './components/Header';
+import Detail from './components/Detail';
 import Home from './components/Home';
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
+
+function App( ) {
   return (
     <div className="App">
+      <Router>
       <Header />
-      <Home />
+        <Routes>
+          <Route path="/detail" element={<Detail />}></Route>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
